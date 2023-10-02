@@ -43,7 +43,7 @@ public class number_baseball {
         }
     }
 
-    public void check_numbers(){
+    public boolean check_numbers(){
         ball=0;
         strike=0;
         for (int a=0;a<3;a++){
@@ -53,14 +53,20 @@ public class number_baseball {
         }
 
         if(ball!=0) {
-            System.out.print(ball + " 볼");
+            System.out.print(ball + "볼 ");
         }
         if(strike!=0) {
-            System.out.println(" " + strike + "스트라이크");
-            if(strike==3){
-                System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
-            }
+            System.out.print(strike + "스트라이크");
         }
+        if(ball!=0||strike!=0){
+            System.out.println("");
+        }
+        if(strike==3){
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            return false;
+        }
+
+        return true;
     }
 
     public void check_ball_or_strike(int a, int b){
