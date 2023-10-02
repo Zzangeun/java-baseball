@@ -8,8 +8,11 @@ public class Application {
 
         number_baseball nb = new number_baseball();
 
-        nb.getUser_numbers();
+        nb.randomCom_numbers();
 
+        while (nb.com_numbers!=nb.user_numbers) {
+            nb.getUser_numbers();
+        }
 
     }
 }
