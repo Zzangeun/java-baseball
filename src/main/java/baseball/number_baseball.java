@@ -5,8 +5,10 @@ import java.util.Scanner;
 
 public class number_baseball {
 
-    public String user_numbers;
-    public String com_numbers;
+    public String user_numbers="";
+    public String com_numbers="";
+    public int ball;
+    public int strike;
 
     public void randomCom_numbers(){
         int n[] = new int[3];
@@ -38,6 +40,31 @@ public class number_baseball {
 
         if (user_numbers.length()!=3){
             throw new IllegalArgumentException("Invalid argument: " + user_numbers);
+        }
+    }
+
+    public void check_numbers(){
+        ball=0;
+        strike=0;
+        for (int a=0;a<3;a++){
+            for(int b=0;b<3;b++){
+                check_ball_or_strike(a, b);
+            }
+        }
+
+        if(ball!=0) {
+            System.out.print(ball + " 볼");
+        }
+        if(strike!=0) {
+            System.out.println(" " + strike + "스트라이크");
+        }
+    }
+
+    public void check_ball_or_strike(int a, int b){
+        if(com_numbers.charAt(a)==user_numbers.charAt(b)&&a==b){
+            strike++;
+        }else if(com_numbers.charAt(a)==user_numbers.charAt(b)&&a!=b){
+            ball++;
         }
     }
 

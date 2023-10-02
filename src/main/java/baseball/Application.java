@@ -12,6 +12,7 @@ public class Application {
 
         while (nb.com_numbers!=nb.user_numbers) {
             nb.getUser_numbers();
+            nb.check_numbers();
         }
 
     }
