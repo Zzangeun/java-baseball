@@ -1,24 +1,26 @@
 package baseball;
 
-import java.util.Arrays;
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.Scanner;
 
-public class number_baseball {
+public class NumberBaseball {
 
-    public String user_numbers="";
-    public String com_numbers="";
+    public String userNumbers ="";
+    public String comNumbers ="";
     public int ball;
     public int strike;
 
-    public void randomCom_numbers(){
-        int n[] = new int[3];
+    public void randomComNumbers(){
+        int[] n = new int[3];
         int r = 0;
         for(int i = 0; i<3;i++) {
             do {
-                r = (int)(Math.random()*9)+1;
-            }while(exists(n,r));
+                r = Randoms.pickNumberInRange(1, 9);
+            } while (exists(n, r));
             n[i] = r;
-            com_numbers += r;
+
+            comNumbers += r;
         }
 
     }
@@ -31,24 +33,24 @@ public class number_baseball {
         return false;
     }
 
-    public void getUser_numbers() {
+    public void getUserNumbers() {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("숫자를 입력해주세요 : ");
 
-        user_numbers = sc.next();
+        userNumbers = sc.next();
 
-        if (user_numbers.length()!=3){
-            throw new IllegalArgumentException("Invalid argument: " + user_numbers);
+        if (userNumbers.length()!=3){
+            throw new IllegalArgumentException("Invalid argument: " + userNumbers);
         }
     }
 
-    public boolean check_numbers(){
+    public boolean checkNumbers(){
         ball=0;
         strike=0;
         for (int a=0;a<3;a++){
             for(int b=0;b<3;b++){
-                check_ball_or_strike(a, b);
+                checkBallOrStrike(a, b);
             }
         }
 
@@ -71,10 +73,10 @@ public class number_baseball {
         return true;
     }
 
-    public void check_ball_or_strike(int a, int b){
-        if(com_numbers.charAt(a)==user_numbers.charAt(b)&&a==b){
+    public void checkBallOrStrike(int a, int b){
+        if(comNumbers.charAt(a)== userNumbers.charAt(b)&&a==b){
             strike++;
-        }else if(com_numbers.charAt(a)==user_numbers.charAt(b)&&a!=b){
+        }else if(comNumbers.charAt(a)== userNumbers.charAt(b)&&a!=b){
             ball++;
         }
     }

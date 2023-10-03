@@ -9,13 +9,13 @@ public class Application {
         System.out.println("숫자 야구 게임을 시작합니다.");
 
         do{
-            number_baseball nb = new number_baseball();
+            NumberBaseball nb = new NumberBaseball();
 
-            nb.randomCom_numbers();
+            nb.randomComNumbers();
 
             do{
-                nb.getUser_numbers();
-            }while (nb.check_numbers());
+                nb.getUserNumbers();
+            }while (nb.checkNumbers());
         }while (regame());
 
     }
